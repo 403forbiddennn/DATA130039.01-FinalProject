@@ -8,3 +8,4 @@ This is my final project of the course database.
 * 下面TopRated可以查看评分前250的电影，该功能由get_top_movies.php和TopRated.html共同完成。
 * 另一个超链接实现按类查找，点击后请求get_genres.php进入按类搜索界面，点击相关的类即可完成按类电影排名的查询
 * 静态网站html和css(在assets下)大部分由bootsrap studio制作生成，php相关函数和文件均系自己手写
+* 数据库的创建相关文件均在MySQL Build文件夹里面，其中structure.sql是建立表结构的文件，应当最先运行
