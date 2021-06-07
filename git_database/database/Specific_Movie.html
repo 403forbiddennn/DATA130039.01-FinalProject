@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="no-referrer"/> 
+    <title>database</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>a{TEXT-DECORATION:none;color:black;font-family: sans-serif;font-size: medium;}</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="home.php"><strong>Movie+</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="http://localhost/pma/index.php">管理员登录</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.php">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <img src=<?php echo $img; ?> height="700">
+    <div class="table-responsive" style="background: linear-gradient(-1deg, var(--bs-yellow) 0%, white 100%), #ffffff;transform: skew(0deg);filter: brightness(98%) contrast(107%) grayscale(16%) saturate(108%) sepia(71%);opacity: 0.95;border-width: 5.5px;border-style: ridge;font-size: 27.6px;color: var(--bs-gray);text-align: center;">
+        <table class="table">
+            <tbody>
+                <tr><td>中文名称</td><td><?php echo $Name; ?></td></tr>
+                <tr><td>外文名称</td><td><?php echo $name2; ?></td></tr>
+                <tr><td>豆瓣id</td><td><?php echo $doubanid; ?></td></tr>
+                <tr><td>评分</td><td><?php echo $rating; ?></td></tr>
+                <tr><td>年份</td><td><?php echo $year; ?></td></tr>
+                <tr><td>时长</td><td><?php echo $len; ?>min</td></tr>
+                <tr><td>分类</td><td><?php foreach($genre_record as $gen): ?><a href="get_top_classified_movies.php?id=<?php echo $gen['genre']; ?>"><?php echo $gen['genre']."；"?><?php endForeach; ?></a></td></tr>
+                <tr><td>导演</td><td><?php foreach($director_record as $dir): ?><a href="get_specific_people.php?id=<?php echo $dir['doubanid_person']; ?>"><?php echo $dir['name']."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"; ?></a><?php endForeach; ?></td></tr>
+                <tr><td>编剧</td><td><?php foreach($author_record as $aut): ?><a href="get_specific_people.php?id=<?php echo $aut['doubanid_person']; ?>"><?php echo $aut['name']."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"; ?></a><?php endForeach; ?></td></tr>
+                <tr><td>简介</td><td><?php echo $desc; ?></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive" style="background: linear-gradient(-1deg, var(--bs-yellow) 0%, white 100%), #ffffff;transform: skew(0deg);filter: brightness(98%) contrast(107%) grayscale(16%) saturate(108%) sepia(71%);opacity: 0.95;border-width: 5.5px;border-style: ridge;font-size: 27.6px;color: var(--bs-gray);text-align: center;">
+        <table class="table">
+            <thead>演职员表</thead>
+            <tbody>
+                <?php foreach($director_record as $dir): ?>
+                <tr><td><a href="get_specific_people.php?id=<?php echo $dir['doubanid_person']; ?>"><?php echo $dir['name']."(导演)"; ?></a>  
+                <?php endForeach; ?>
+                <?php if($author_record) {foreach($author_record as $aut): ?>
+                <tr><td><a href="get_specific_people.php?id=<?php echo $aut['doubanid_person']; ?>"><?php echo $aut['name']."(编剧)"; ?></a>  
+                <?php endForeach; }?>
+                <?php foreach($record2 as $act): ?>
+                <tr><td><a href="get_specific_people.php?id=<?php echo $act['0'];?>"><?php echo $act['2']; ?></a> 饰演 <?php if(!$act['1']) echo "UNKNOWN"; else echo $act['1']; ?></td></tr>
+                <?php endForeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

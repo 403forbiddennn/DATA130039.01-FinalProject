@@ -1,0 +1,77 @@
+#promo {
+  text-align: center;
+  padding: 40px;
+  background: url(../../assets/img/background.jpg) no-repeat;
+  background-size: cover;
+}
+
+#promo .jumbotron {
+  border-radius: 20px;
+  padding: 40px;
+  background-color: rgba(255,255,255,0.75);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: #000!important;
+  opacity: 0.8;
+}
+
+a {
+  color: #fff;
+  font-size: 13px;
+}
+
+input {
+  padding: 10px 140px;
+  vertical-align: middle;
+}
+
+body {
+  font-family: Arial, Helvetica, san-serif, heiti;
+  font-weight: 400;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-section {
+  text-align: center;
+  padding: 60px 0;
+}
+
+h1 {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.fab.fa-imdb {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.fa.fa-film {
+  padding: 10px;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+svg {
+  padding: 10px;
+  font-size: 60px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon.ion-ios-locked-outline {
+}
+
+img {
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

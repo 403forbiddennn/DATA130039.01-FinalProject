@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="no-referrer"/> 
+    <title>database</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>a{TEXT-DECORATION:none;color:black;}</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="home.php"><strong>Movie+</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="http://localhost/pma/index.php">管理员登录</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.php">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <img src=<?php if(!$img) echo "assets/img/unknown.jpg";else echo $img; ?> height="500">
+    <div class="table-responsive" style="background: linear-gradient(-1deg, var(--bs-yellow) 0%, white 100%), #ffffff;transform: skew(0deg);filter: brightness(98%) contrast(107%) grayscale(16%) saturate(108%) sepia(71%);opacity: 0.95;border-width: 5.5px;border-style: ridge;font-size: 27.6px;color: var(--bs-gray);text-align: center;">
+        <table class="table">
+            <tbody>
+                <tr><td>名称</td><td><?php echo $name; ?></td></tr>
+                <tr><td>豆瓣id</td><td><?php echo $doubanid_person; ?></td></tr>
+                <tr><td>IMDBid</td><td><?php echo $imdb_id; ?></td></tr>
+                <tr><td>生日</td><td><?php echo $birthday; ?></td></tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <tbody>
+                <thead>参与电影</thead>
+                <?php if($author_film){foreach($author_film as $movie_name): ?>
+                <tr><td><a href="get_specific_movie.php?id=<?php echo $movie_name['doubanid_film']; ?>"><?php if(!$movie_name['name2']) echo $movie_name['Name']."(编剧)";else echo $movie_name['Name']." (".$movie_name['name2'].")"."(编剧)";?></a></td></tr>
+                <?php endForeach; }?>
+                <?php if($director_film) {foreach($director_film as $movie_name): ?>
+                <tr><td><a href="get_specific_movie.php?id=<?php echo $movie_name['doubanid_film']; ?>"><?php if(!$movie_name['name2']) echo $movie_name['Name']."(导演)";else echo $movie_name['Name']." (".$movie_name['name2'].")"."(导演)";?></a></td></tr>
+                <?php endForeach; }?>
+                <?php foreach($actor_film as $movie_name): ?>
+                <tr><td><a href="get_specific_movie.php?id=<?php echo $movie_name['doubanid_film']; ?>"><?php if(!$movie_name['name2']) echo $movie_name['Name']."(演员)";else echo $movie_name['Name']." (".$movie_name['name2'].")"."(演员)";?></a></td></tr>
+                <?php endForeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

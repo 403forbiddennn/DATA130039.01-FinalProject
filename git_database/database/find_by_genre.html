@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>database</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>a{TEXT-DECORATION:none;color:black;font-family: sans-serif;font-size: medium;}</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="home.php"><strong>Movie+</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="http://localhost/pma/index.php">管理员登录</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.php">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="promo">
+        <section>
+            <div class="border rounded jumbotron py-5 px-4">
+                <h1>Movie+: Find Your Movie!</h1>
+                <p></p>
+                <p></p>
+            </div>
+        </section>
+    </div>
+    <div class="container site-section">
+        <h1 class="text-light bg-dark border rounded-pill border-danger shadow">点击下面分类开始分类查找电影</h1>
+        <div class="table-responsive" style="background: linear-gradient(-1deg, var(--bs-yellow) 0%, white 100%), #ffffff;transform: skew(0deg);filter: brightness(98%) contrast(107%) grayscale(16%) saturate(108%) sepia(71%);opacity: 0.95;border-width: 5.5px;border-style: ridge;font-size: 27.6px;color: var(--bs-gray);text-align: center;">
+            <table class="table">
+                <thead>分类列表</thead>
+                <tbody>
+                    <tr>
+                    <?php foreach($genres as $genre): ?>
+                    <td><a href="get_top_classified_movies.php?id=<?php echo $genre['Name']; ?>"><?php echo $genre['Name']; ?></a></td>
+                    <?php endForeach; ?>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
